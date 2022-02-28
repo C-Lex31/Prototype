@@ -20,7 +20,7 @@ public class InspectorBaseGUI : Editor
 
     protected virtual void OnEnable()
     {
-        icon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/Dias Games/Editor/GUI/tps_icon.psd", typeof(Texture2D));
+        icon = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/Scripts/Inspector/GUI/tps_icon.psd", typeof(Texture2D));
         headerSkin = Resources.Load("HeaderSkin") as GUISkin;
         contentSkin = Resources.Load("ContentSkin") as GUISkin;
         defaultSkin = Resources.Load("DefaultSkin") as GUISkin;

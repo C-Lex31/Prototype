@@ -76,7 +76,7 @@ public class ThirdPersonSystem : MonoBehaviour
 
     #region  Xtras
     public Vector3 extraGravityForce;
-    [SerializeField] float m_GravityAcceleration = 19.6f;
+    [SerializeField]  float m_GravityAcceleration = 19.6f;
     public float JumpOffset;
     public Transform camera;
     private int m_DirectionId = 0;
