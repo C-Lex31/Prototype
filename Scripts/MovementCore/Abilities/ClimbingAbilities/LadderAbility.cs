@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
 public class LadderAbility : ThirdPersonAbility
 {
     private LadderVolume currentLadder;

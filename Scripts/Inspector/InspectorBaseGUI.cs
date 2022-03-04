@@ -2,8 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-
-
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
+/*
+This is just for reducing visual clutter on the inspector 
+and for the ease of adding and removing abilities for new teamates.
+*/
 public class InspectorBaseGUI : Editor
 {
     protected Texture2D icon;

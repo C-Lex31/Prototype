@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
+// Base class for all locomotion related stuff 
 
 public enum InputEnterType { ButtonDown, ButtonPressing, ButtonReleased, KeyDown, KeyPressing, KeyReleased, Noone }
 

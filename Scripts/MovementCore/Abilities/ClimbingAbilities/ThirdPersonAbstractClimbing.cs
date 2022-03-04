@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
+// Base Class for all the climbing related stuff
 public abstract class ThirdPersonAbstractClimbing : ThirdPersonAbility
 {
     [Tooltip("Layers that player can cast ledge and climb")] [SerializeField] protected LayerMask m_ClimbableMask;

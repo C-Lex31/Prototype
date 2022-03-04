@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
+//Added by PeskyDev001 (uid 65)
+//Purpose: For seprating core movement related stuff from additional stuff like Actor Health Manager 
 public class ModifierManager : MonoBehaviour
 {
     public List<Modifier> m_Modifiers;

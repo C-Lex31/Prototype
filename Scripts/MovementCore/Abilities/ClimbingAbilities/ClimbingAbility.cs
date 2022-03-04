@@ -1,5 +1,8 @@
 using UnityEngine;
 
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
+
 public enum MovementInputType { Relative, Absolute }
 public class ClimbingAbility : ThirdPersonAbstractClimbing
 {

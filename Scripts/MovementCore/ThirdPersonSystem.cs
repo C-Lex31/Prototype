@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
+/*
+The following code design follows a Finite State Machine Behaviour.
+Any ability that you want to add to the Player (that does not relate to climbing stuff) must derive from the ThirdPeronAbility script.
+This script contains(and is being updated) all the neccessary methods common to a Third Person Actor.
+*/
 public class ThirdPersonSystem : MonoBehaviour
 {
     #region Components
@@ -23,9 +30,9 @@ public class ThirdPersonSystem : MonoBehaviour
     public bool m_IsGrounded;
     [SerializeField] private float GroundOffset = 0.12f;
     public Vector3 GroundNormal;
-    [Tooltip("For Debugging Ground Detection")] [SerializeField] private float m_GroundCheckSphereRadius = 0.35f;
+    [Tooltip("For Debugging Ground Detection")][SerializeField] private float m_GroundCheckSphereRadius = 0.35f;
     [SerializeField] private float m_MaxAngleSlope = 45f;
-    [Tooltip("Layers to treat as a ground")] [SerializeField] private LayerMask m_GroundMask = (1 << 0) | (1 << 14) | (1 << 16) | (1 << 17) | (1 << 18) | (1 << 19) | (1 << 20);
+    [Tooltip("Layers to treat as a ground")][SerializeField] private LayerMask m_GroundMask = (1 << 0) | (1 << 14) | (1 << 16) | (1 << 17) | (1 << 18) | (1 << 19) | (1 << 20);
     [Range(1f, 10f)] public float m_GravityMultiplier = 2f;
 
     #endregion
@@ -76,7 +83,7 @@ public class ThirdPersonSystem : MonoBehaviour
 
     #region  Xtras
     public Vector3 extraGravityForce;
-    [SerializeField]  float m_GravityAcceleration = 19.6f;
+    [SerializeField] float m_GravityAcceleration = 19.6f;
     public float JumpOffset;
     public Transform camera;
     private int m_DirectionId = 0;
@@ -96,7 +103,23 @@ public class ThirdPersonSystem : MonoBehaviour
     // float m_OrigGroundCheckDistance;
     Vector3 moveDirection;
     #endregion
+    #region camera
+    [Header("Vcam1")]
+    public GameObject VcamTarget;
+    public float TopClamp = 70.0f;
+    [Tooltip("How far in degrees can you move the camera down")]
+    public float BottomClamp = -30.0f;
+    [Tooltip("Additional degress to override the camera. Useful for fine tuning camera position when locked")]
+    public float CameraAngleOverride = 0.0f;
+    [Tooltip("For locking the camera position on all axis")]
+    public bool LockCameraPosition = false;
+    public float _xSpeed = 3f;
+    public float _ySpeed = 3f;
 
+    private float _AceTargetYaw;
+    private float _AceTargetPitch;
+
+    #endregion
 
     void Awake()
     {
@@ -140,7 +163,7 @@ public class ThirdPersonSystem : MonoBehaviour
             m_ActiveAbility.FixedUpdateAbility();
 
         // ----------------------------------------------------------------- //
-
+//
     }
 
     // Update is called once per frame
@@ -156,6 +179,19 @@ public class ThirdPersonSystem : MonoBehaviour
     }
 
 
+    void CameraRotation()
+    {
+        if (!LockCameraPosition)
+        {
+            _AceTargetYaw += Input.GetAxis("Mouse X") * _xSpeed;
+            _AceTargetPitch += -Input.GetAxis("Mouse Y") * _ySpeed;
+        }
+        _AceTargetYaw = Mathf.Clamp(_AceTargetYaw, float.MinValue, float.MaxValue);
+        _AceTargetPitch = Mathf.Clamp(_AceTargetPitch, BottomClamp, TopClamp);
+
+        VcamTarget.transform.rotation = Quaternion.Euler(_AceTargetPitch + CameraAngleOverride, _AceTargetYaw, 0.0f);
+    
+    }
 
     void GroundCheck2()
     {

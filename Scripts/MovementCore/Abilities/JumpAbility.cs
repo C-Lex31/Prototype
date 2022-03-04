@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
+
 public class JumpAbility : ThirdPersonAbility
 {
     // [SerializeField] private string m_JumpStart = "Air.JumpDivider";

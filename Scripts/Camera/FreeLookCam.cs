@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Developed by C-Lex31 (uid 31)
+//Contact cpplexicon@gmail.com
 public class FreeLookCam : PivotBasedCamRig
 {
     [SerializeField] private float m_MoveSpeed = 1f;                      // How fast the rig will move to keep up with the target's position.
